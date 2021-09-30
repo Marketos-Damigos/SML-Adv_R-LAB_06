@@ -8,3 +8,10 @@ knapsack_objects <-
     v=runif(n = n, 0, 10000)
   )
 
+# Brute force search
+
+knapsack_brute_force <- function(x, W){
+  if ( W <=0){
+    stop("W must be positive")
+  }
+}
