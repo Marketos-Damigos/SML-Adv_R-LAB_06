@@ -1,0 +1,20 @@
+Package: Lab6package
+Type: Package
+Title: A package with 3 different solutions to the knapsack problem
+Version: 1.0
+Date: 2021-10-01
+Author: Marketos Damigos (marda352), Christoforos Spyretos (chrsp415)
+Maintainer: Marketos Damigos <marda352@student.liu.se>
+Description: Package to download Swedish election results for 2010, 2014, 2018 and preview them with r-Shiny.
+License: GPL-3
+RoxygenNote: 7.1.1
+Encoding: UTF-8
+Suggests: testthat,
+    knitr,
+    rmarkdown
+Imports: methods,
+    shiny,
+    readxl,
+    DT
+LazyData: true
+VignetteBuilder: knitr
