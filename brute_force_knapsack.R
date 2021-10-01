@@ -1,13 +1,3 @@
-RNGversion(min(as.character(getRversion()),"3.5.3"))
-
-set.seed(42, kind = "Mersenne-Twister", normal.kind = "Inversion")
-n <- 2000
-knapsack_objects <-
-  data.frame(
-    w=sample(1:4000, size = n, replace = TRUE),
-    v=runif(n = n, 0, 10000)
-  )
-
 brute_force_knapsack <-function(x, W, parallel = FALSE){
   big_O <- 2^(nrow(x))-1
   
@@ -16,7 +6,6 @@ brute_force_knapsack <-function(x, W, parallel = FALSE){
     temp_weight <- sum(x$w * all_combs[,i])
     return(ifelse(temp_weight <= W, temp_val, NA))
   }
-  
   
   if(parallel == FALSE){
     
@@ -43,6 +32,4 @@ brute_force_knapsack <-function(x, W, parallel = FALSE){
     elements <- which(intToBits(max_pos) > 0)
     return(list(value = round(max_val,0), elements = elements))
   }
-  
-  
 }
