@@ -1,3 +1,11 @@
+#'@description This is the dynamic implementation of knapsack.
+#'
+#'@field x. Data frame.
+#'@field W. Value.
+#'@import methods
+#'@return List
+#'@export knapsack_dynamic 
+
 knapsack_dynamic <- function(x, W){
   combs = matrix(-1, nrow = nrow(x)+1, ncol = W+1)
   combs[1, ] <- 0
