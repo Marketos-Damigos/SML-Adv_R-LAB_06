@@ -2,8 +2,8 @@
 #'
 #'@description This is the brute force implementation of knapsack.
 #'
-#'@field x. Data frame.
-#'@field W. Value.
+#'@param x. Data frame.
+#'@param W. Value.
 #'@import methods
 #'@import parallel
 #'@return List

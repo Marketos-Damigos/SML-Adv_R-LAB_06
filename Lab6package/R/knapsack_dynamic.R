@@ -2,8 +2,8 @@
 #'
 #'@description This is the dynamic implementation of knapsack.
 #'
-#'@field x. Data frame.
-#'@field W. Value.
+#'@param x. Data frame.
+#'@param W. Value.
 #'@import methods
 #'@return List
 #'@export knapsack_dynamic 
