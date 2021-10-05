@@ -3,37 +3,28 @@ knapsack_dynamic <- function(x, W){
   combs[1, ] <- 0
   combs[ , 1] <- 0
   
-  m = function(i,j){
-    if(i == 0 || j <= 0){
-      combs[i, j] <<- 0
-      return(0)
+  for (i in 2:nrow(x)) {
+    for (j in 1:W) {
+      if(x$w[i] > j){
+        combs[i,j] <- combs[i-1,j]
+      }else{
+        combs[i,j] <- max(combs[i-1,j], combs[i-1, j-x$w[i]] + x$v[i]) 
+      }         
     }
-    
-    if(combs[i-1, j] == -1){
-      combs[i-1, j] <<- m(i-1, j)
-    }
-    
-    if(x$w[i-1] > j || j - x$w[i-1] <= 0){
-      combs[i, j] <<- combs[i-1, j]
-    }else{
-      if (combs[i, j-x$w[i-1]] == -1){
-        combs[i, j-x$w[i-1]] <<- m(i, j-x$w[i-1])
-      }
-      combs[i, j] <<- max(combs[i-1,j], combs[i-1, j-x$w[i-1]] + x$v[i-1])
-      }
   }
-
-  results = m(length(x$w)+1, W+1)
+  
+  
+  results = combs[nrow(x),W]
   
   elem <- c()
   
-  j <- W + 1
-  i <- length(x$w)+1
+  j <- W
+  i <- length(x$w)
   
   while ( i > 1) {
     if(combs[i, j] != combs[i-1, j]){
-      elem <- append(elem, i-1)
-      j <-  j - x$w[i-1]
+      elem <- append(elem, i)
+      j <-  j - x$w[i]
     }
     i = i-1
   }
