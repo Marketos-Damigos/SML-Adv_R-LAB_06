@@ -1,5 +1,5 @@
-#brute_force_knapsack
-#
+#' brute_force_knapsack
+#'
 #'@description This is the brute force implementation of knapsack.
 #'
 #'@field x. Data frame.
