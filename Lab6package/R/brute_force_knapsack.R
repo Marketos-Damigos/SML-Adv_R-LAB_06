@@ -45,7 +45,7 @@ brute_force_knapsack <-function(x, W, parallel = FALSE){
     
     if (nzchar(chk) && chk == "TRUE") {
       # use 2 cores in CRAN/Travis/AppVeyor
-      cores <- 2L
+      cores <- 1L
     } else {
       # use all cores in devtools::test()
       cores <- parallel::detectCores()
