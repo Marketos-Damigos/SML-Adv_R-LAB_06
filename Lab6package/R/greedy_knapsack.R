@@ -8,11 +8,12 @@
 #'@return List
 #'@export greedy_knapsack 
 
-stopifnot("You should give a df." = is.data.frame(x),
-          "W should be a number." = is.numeric(W),
-          "W should be positive." = W > 0,
-          "You should give a df with col names: (w, v)." = colnames(x) %in% c("w","v"),
-          "You should give positive values for x." = all(x >= 0))
+greedy_knapsack <- function(x, W){
+  stopifnot("You should give a df." = is.data.frame(x),
+            "W should be a number." = is.numeric(W),
+            "W should be positive." = W > 0,
+            "You should give a df with col names: (w, v)." = colnames(x) %in% c("w","v"),
+            "You should give positive values for x." = all(x >= 0))
   
   x = x[x$w <= W,]
   x$ratio = x$v / x$w
