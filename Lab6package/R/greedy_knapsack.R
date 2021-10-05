@@ -1,3 +1,5 @@
+#greedy_knapsack 
+#
 #'@description This is the greedy implementation of knapsack.
 #'
 #'@field x. Data frame.

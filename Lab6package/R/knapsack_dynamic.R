@@ -1,3 +1,5 @@
+#knapsack_dynamic 
+#
 #'@description This is the dynamic implementation of knapsack.
 #'
 #'@field x. Data frame.
