@@ -13,7 +13,7 @@ greedy_knapsack <- function(x, W){
             "W should be a number." = is.numeric(W),
             "W should be positive." = W > 0,
             "You should give a df with col names: (w, v)." = colnames(x) %in% c("w","v"),
-            "You should give positive values for x." = all(x >= 0))
+            "You should give positive values for x." = all(x >= 0, na.rm = TRUE))
   
   x = x[x$w <= W,]
   x$ratio = x$v / x$w

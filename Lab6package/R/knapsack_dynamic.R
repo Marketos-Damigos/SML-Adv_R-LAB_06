@@ -13,7 +13,7 @@ knapsack_dynamic <- function(x, W){
             "W should be a number." = is.numeric(W),
             "W should be positive." = W > 0,
             "You should give a df with col names: (w, v)." = colnames(x) %in% c("w","v"),
-            "You should give positive values for x." = all(x >= 0))
+            "You should give positive values for x." = all(x > 0, na.rm = TRUE))
   
   combs = matrix(-1, nrow = nrow(x)+1, ncol = W+1)
   combs[1, ] <- 0
