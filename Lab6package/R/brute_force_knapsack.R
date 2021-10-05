@@ -1,7 +1,7 @@
 #' brute_force_knapsack
 #'
 #'@description This is the brute force implementation of knapsack.
-#'
+#'@usage brute_force_knapsack(x, W)
 #'@param x. Data frame.
 #'@param W. Value.
 #'@import methods

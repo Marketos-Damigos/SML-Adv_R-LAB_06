@@ -1,7 +1,7 @@
 #' greedy_knapsack 
 #'
 #'@description This is the greedy implementation of knapsack.
-#'
+#'@usage greedy_knapsack  (x, W)
 #'@param x. Data frame.
 #'@param W. Value.
 #'@import methods
