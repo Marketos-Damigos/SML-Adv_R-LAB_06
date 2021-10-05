@@ -1,3 +1,4 @@
+---
 title: "Lab6Package"
 authors: Marketos Damigos (marda352) & Christoforos Spyretos (chrsp415)
 output: 

@@ -11,12 +11,12 @@
 #'@export brute_force_knapsack
 
 brute_force_knapsack <-function(x, W, parallel = FALSE){
-  if(is.data.frame(x) == FALSE || colnames(x) != c("w","v")){
-    stop("You should give a df with correct columns.")
-  }
-  if(W <= 0 || is.integer(x[,1]) == FALSE || is.numeric(W) == FALSE || length(W) != 1 || all(x < 0)){
-    stop("You should give a df with positive values.")
-  }
+  
+  stopifnot("You should give a df." = is.data.frame(x),
+            "W should be a number." = is.numeric(W),
+            "W should be positive." = W>0,
+            "You should give a df with col names: (w, v)." = colnames(x) %in% c("w","v"),
+            "You should give positive values for x." = all(x > 0))
   
   big_O <- 2^(nrow(x))-1
   
@@ -45,7 +45,7 @@ brute_force_knapsack <-function(x, W, parallel = FALSE){
     
     if (nzchar(chk) && chk == "TRUE") {
       # use 2 cores in CRAN/Travis/AppVeyor
-      cores <- 1L
+      cores <- 2L
     } else {
       # use all cores in devtools::test()
       cores <- parallel::detectCores()

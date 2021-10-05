@@ -9,13 +9,11 @@
 #'@export greedy_knapsack 
 
 greedy_knapsack <- function(x, W){
-  
-  if(is.data.frame(x) == FALSE || colnames(x) != c("w","v")){
-    stop("You should give a df with correct columns.")
-  }
-  if(W <= 0 || is.integer(x[,1]) == FALSE || is.numeric(W) == FALSE || length(W) != 1 || all(x < 0)){
-    stop("You should give a df with positive values.")
-  }
+  stopifnot("You should give a df." = is.data.frame(x),
+            "W should be a number." = is.numeric(W),
+            "W should be positive." = W>0,
+            "You should give a df with col names: (w, v)." = colnames(x) %in% c("w","v"),
+            "You should give positive values for x." = all(x > 0))
   
   x = x[x$w <= W,]
   x$ratio = x$v / x$w
