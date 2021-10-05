@@ -1,9 +1,10 @@
 #' brute_force_knapsack
 #'
 #'@description This is the brute force implementation of knapsack.
-#'@usage brute_force_knapsack(x, W)
-#'@param x. Data frame.
-#'@param W. Value.
+#'@usage brute_force_knapsack(x, W, parallel)
+#'@param x Data frame.
+#'@param W Value.
+#'@param parallel Value.
 #'@import methods
 #'@import parallel
 #'@return List
@@ -32,7 +33,18 @@ brute_force_knapsack <-function(x, W, parallel = FALSE){
     
   }else{
     
-    cores <- detectCores()
+    #https://stackoverflow.com/a/50571533
+    chk <- Sys.getenv("_R_CHECK_LIMIT_CORES_", "")
+    
+    if (nzchar(chk) && chk == "TRUE") {
+      # use 2 cores in CRAN/Travis/AppVeyor
+      cores <- 2L
+    } else {
+      # use all cores in devtools::test()
+      cores <- parallel::detectCores()
+    }
+    
+    
     all_combs <- matrix(unlist(mclapply(1:(big_O), function(i) as.integer(intToBits(i)[1:nrow(x)], mc.cores = cores))), nrow = nrow(x))
     #all_combs <- sapply(1:(big_O), function(i) as.integer(intToBits(i)[1:nrow(x)]))
     
