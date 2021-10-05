@@ -1,0 +1,117 @@
+title: "Lab6Package"
+authors: Marketos Damigos (marda352) & Christoforos Spyretos (chrsp415)
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Lab6Package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  echo = TRUE
+)
+```
+
+```{r}
+library(Lab6package)
+library(parallel)
+```
+
+##  Introduction
+
+Knapsack algorithm implented with brute force, greedy and dynamic solutions.
+
+## Data Initalazation
+```{r}
+RNGversion(min(as.character(getRversion()),"3.5.3"))
+
+set.seed(42, kind = "Mersenne-Twister", normal.kind = "Inversion")
+n <- 2000
+knapsack_objects <- data.frame( w=sample(1:4000, size = n, replace = TRUE),
+v=runif(n = n, 0, 10000)
+)
+```
+
+## Brute Force Search
+
+```{r}
+brute_force_knapsack(x = knapsack_objects[1:8,], W = 3500)
+
+brute_force_knapsack(x = knapsack_objects[1:12,], W = 3500)
+
+brute_force_knapsack(x = knapsack_objects[1:8,], W = 2000)
+
+brute_force_knapsack(x = knapsack_objects[1:12,], W = 2000)
+```
+#### Question 1
+How much time does it takes to run the algorithm for n = 16 objects?
+
+```{r}
+system.time(brute_force_knapsack(x = knapsack_objects[1:16,], W = 2000))
+```
+
+It took on average 1.146sec.
+
+## Dynamic Programming
+
+```{r}
+knapsack_dynamic(x = knapsack_objects[1:8,], W = 3500)
+
+knapsack_dynamic(x = knapsack_objects[1:12,], W = 3500)
+
+knapsack_dynamic(x = knapsack_objects[1:8,], W = 2000)
+
+knapsack_dynamic(x = knapsack_objects[1:12,], W = 2000)
+```
+
+#### Question 2
+How much time does it takes to run the algorithm for n = 500 objects?
+
+```{r}
+system.time(knapsack_dynamic(x = knapsack_objects[1:500,], W = 3500))
+```
+
+It took 4.049sec.
+
+## Greedy Heuristic
+
+```{r}
+greedy_knapsack(x = knapsack_objects[1:800,], W = 3500)
+
+greedy_knapsack(x = knapsack_objects[1:1200,], W = 2000)
+```
+
+#### Question 3
+How much time does it takes to run the algorithm for n = 1000000 objects?
+
+```{r}
+system.time(greedy_knapsack(x = knapsack_objects[1:1000000,], W = 3500))
+```
+
+It took 1.520sec.
+
+#### Question 4
+What performance gain could you get by trying to improving your code?
+
+After running profvis() for our brute force implementation we change from using lapply to sapply.
+
+#### Question 5
+What performance gain could you get by parallelizing brute force search?
+
+```{r}
+system.time(brute_force_knapsack(x = knapsack_objects[1:20,], W = 2000))
+system.time(brute_force_knapsack(x = knapsack_objects[1:20,], W = 2000, parallel = TRUE))
+```
+
+It took 5.572sec for the parallel version and 12.919sec for the normal version, which is approximatelly 2.5 times faster.
+
+
+
+
+
+
