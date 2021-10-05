@@ -12,9 +12,6 @@ Encoding: UTF-8
 Suggests: testthat,
     knitr,
     rmarkdown
-Imports: methods,
-    shiny,
-    readxl,
-    DT
+Imports: methods
 LazyData: true
 VignetteBuilder: knitr
