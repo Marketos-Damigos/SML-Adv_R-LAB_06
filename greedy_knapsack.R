@@ -1,3 +1,11 @@
+#'@description This is the greedy implementation of knapsack.
+#'
+#'@field x. Data frame.
+#'@field W. Value.
+#'@import methods
+#'@return List
+#'@export greedy_knapsack 
+
 greedy_knapsack <- function(x, W){
   
   x = x[x$w <= W,]

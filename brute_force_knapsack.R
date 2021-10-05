@@ -1,3 +1,12 @@
+#'@description This is the brute force implementation of knapsack.
+#'
+#'@field x. Data frame.
+#'@field W. Value.
+#'@import methods
+#'@import parallel
+#'@return List
+#'@export brute_force_knapsack
+
 brute_force_knapsack <-function(x, W, parallel = FALSE){
   big_O <- 2^(nrow(x))-1
   
