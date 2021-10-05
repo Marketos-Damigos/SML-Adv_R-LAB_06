@@ -14,9 +14,9 @@ brute_force_knapsack <-function(x, W, parallel = FALSE){
   
   stopifnot("You should give a df." = is.data.frame(x),
             "W should be a number." = is.numeric(W),
-            "W should be positive." = W>0,
+            "W should be positive." = W > 0,
             "You should give a df with col names: (w, v)." = colnames(x) %in% c("w","v"),
-            "You should give positive values for x." = all(x > 0))
+            "You should give positive values for x." = all(x >= 0))
   
   big_O <- 2^(nrow(x))-1
   
