@@ -1,4 +1,4 @@
-[![Build Status](https://app.travis-ci.com/Marketos-Damigos/SML-Adv_R-LAB_04.svg?token=gRD797XfREbR65fpuoXy&branch=main)](https://app.travis-ci.com/Marketos-Damigos/SML-Adv_R-LAB_04)
+[![Build Status](https://app.travis-ci.com/Marketos-Damigos/SML-Adv_R-LAB_06.svg?token=gRD797XfREbR65fpuoXy&branch=main)](https://app.travis-ci.com/Marketos-Damigos/SML-Adv_R-LAB_06)
 
 # 732A94 - Advanced R Programming  Lab 6
 ## Overview
