@@ -203,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">brute_force_knapsack</span>(<span class="at">x =</span> knapsack_objects[<span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>,], <span class="at">W =</span> <span class="dv">2000</span>))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    user  system elapsed </span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   0.863   0.013   0.878</span></span></code></pre></div>
-<p>It took on average 1.146sec.</p>
+<p>It took on average 0.878sec.</p>
 </div>
 </div>
 <div id="dynamic-programming" class="section level2">
@@ -241,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">knapsack_dynamic</span>(<span class="at">x =</span> knapsack_objects[<span class="dv">1</span><span class="sc">:</span><span class="dv">500</span>,], <span class="at">W =</span> <span class="dv">3500</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    user  system elapsed </span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   3.496   0.005   3.507</span></span></code></pre></div>
-<p>It took 4.049sec.</p>
+<p>It took 3.507sec.</p>
 </div>
 </div>
 <div id="greedy-heuristic" class="section level2">
@@ -268,7 +268,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">greedy_knapsack</span>(<span class="at">x =</span> knapsack_objects[<span class="dv">1</span><span class="sc">:</span><span class="dv">1000000</span>,], <span class="at">W =</span> <span class="dv">3500</span>))</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    user  system elapsed </span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1.687   0.029   1.718</span></span></code></pre></div>
-<p>It took 1.520sec.</p>
+<p>It took 1.718sec.</p>
 </div>
 <div id="question-4" class="section level4">
 <h4>Question 4</h4>
@@ -284,7 +284,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">brute_force_knapsack</span>(<span class="at">x =</span> knapsack_objects[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,], <span class="at">W =</span> <span class="dv">2000</span>, <span class="at">parallel =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    user  system elapsed </span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  20.313   1.190   6.056</span></span></code></pre></div>
-<p>It took 5.572sec for the parallel version and 12.919sec for the normal version, which is approximately 2.5 times faster.</p>
+<p>It took 6.056sec for the parallel version and 15.785sec for the normal version, which is approximately 2.5 times faster.</p>
 </div>
 </div>
 
